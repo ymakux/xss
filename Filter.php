@@ -2,22 +2,16 @@
 
 class Filter
 {
-    private $allowed_protocols, $allowed_tags;
-
-    public function __construct()
-    {
-        $this->allowed_protocols = array('http', 'ftp', 'mailto');
-        $this->allowed_tags = array('a', 'i', 'b', 'em', 'span', 'strong', 'ul', 'ol', 'li', 'table', 'tr', 'td', 'thead', 'th', 'tbody');
-    }
+    private $allowed_protocols = array(), $allowed_tags = array();
     
     public function addAllowedProtocols($protocols)
     {
-        $this->allowed_protocols += (array)$protocols;
+        $this->allowed_protocols = (array)$protocols;
     }
     
     public function addAllowedTags($tags)
     {
-        $this->allowed_tags += (array)$tags;
+        $this->allowed_tags = (array)$tags;
     }
     
     public function xss($string)
